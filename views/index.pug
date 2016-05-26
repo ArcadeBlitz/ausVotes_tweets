@@ -1,9 +1,10 @@
 extends layout
 
 block content
-    include svg.jade
+    include svg.pug
     -var heading = "<span id='titlep1'>#aus</span><span id='titlep2'>votes</span>"
-    h1 !{heading}
+    header
+      h1 !{heading}
     br
     br
     if data.statuses
@@ -14,6 +15,6 @@ block content
                 li(class='username')= '@' + item.user.screen_name
                 br
                 li(class='text')= item.text
-                li(class='tweetdata'): !{rt} <span class='count'> !{item.retweet_count} </span> !{like} <span class='count'> !{item.favorite_count} </span>
+                li(class='tweetdata') !{rt} <span class='count'> !{item.retweet_count} </span> !{like} <span class='count'> !{item.favorite_count} </span>
     else
         p= 'Pual has screwed up...'

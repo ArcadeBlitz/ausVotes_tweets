@@ -8,6 +8,11 @@ body {
    font-family: "AlegreyaSans", Fallback, sans-serif;
 }
 
+header {
+   background-color: #4285F4;
+   height: 100px;
+}
+
 a {
   color: #00B7FF;
 }
@@ -47,7 +52,6 @@ ul, li {
 
 h1 {
    width: 140px;
-   padding: 10px;
 }
 
 .text {
