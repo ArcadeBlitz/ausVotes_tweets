@@ -1,0 +1,77 @@
+@font-face {
+   font-family: 'AlegreyaSans';
+   src: url('../fonts/AlegreyaSans-Regular.ttf');
+}
+
+body {
+   padding: 50px;
+   font-family: "AlegreyaSans", Fallback, sans-serif;
+}
+
+a {
+  color: #00B7FF;
+}
+
+ul, li {
+   list-style-type: none;
+}
+
+.status {
+   border-left: solid 3px #FFC107;
+   border-bottom: solid 3px #FFC107;
+   
+   border-right: solid 3px #4CAF50;
+   border-top: solid 3px #4CAF50;
+
+   border-radius: 15px;
+   
+   padding: 30px;
+}
+
+.avatar {
+   float: left;
+   padding-right: 10px;
+}
+
+#titlep1 {
+   color: #FFC107;
+   background-color: #81C784;
+   padding: 20px;
+}
+
+#titlep2 {
+   color: #4CAF50;
+   background-color: #FFD54F;
+   padding: 20px;
+}
+
+h1 {
+   width: 140px;
+   padding: 10px;
+}
+
+.text {
+   padding-top: 10px;
+   padding-bottom: 10px;
+}
+
+.username {
+   font-weight: bold;
+}
+
+.like, .rt{
+   width: 25px;
+   fill: #AAB8C2;
+}
+
+.tweetdata {
+}
+
+svg {
+   vertical-align: middle;
+   padding-right:10px;
+}
+
+.count {
+   padding-right: 15px;
+}

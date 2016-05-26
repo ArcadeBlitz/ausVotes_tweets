@@ -1,0 +1,16 @@
+extends layout
+
+block content
+   include svg.jade
+   -var heading = "<span id='titlep1'>#aus</span><span id='titlep2'>votes</span>"
+   h1 !{heading}
+   br
+   br
+   each item in data.statuses
+      ul(class='status')
+         li(class='avatar'): img(src= item.user.profile_image_url)
+         li(class='name')= item.user.name
+         li(class='username')= '@' + item.user.screen_name
+         br
+         li(class='text')= item.text
+         li(class='tweetdata'): !{rt} <span class='count'> !{item.retweet_count} </span> !{like} <span class='count'> !{item.favorite_count} </span>
