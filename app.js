@@ -59,13 +59,16 @@ module.exports = app;
 
 // run twitter cronjob
 
+// load env variables
+require('dotenv').config()
+
 /* Twitter Stuff */
 var Twitter = require('twitter');
 var client = new Twitter({
-   consumer_key: '',
-   consumer_secret: '',
-   access_token_key: '',
-   access_token_secret: ''
+   consumer_key: process.env.DB_ConsumerKey,
+   consumer_secret: process.env.DB_ConsumerKeySecret,
+   access_token_key: process.env.DB_AccessToken,
+   access_token_secret: process.env.DB_AccessTokenKey
 });
 
 var searchTerm = '#ausvotes -filter:retweet';
@@ -75,7 +78,7 @@ var CronJob = require('cron').CronJob;
 var fs = require('fs');
 
 var job = new CronJob('*/30 */1 * * * *', function() {
-   
+
    console.log('Checking for tweets\t' + (new Date()).toTimeString());
    client.get('search/tweets', {q: searchTerm, result_type: 'recent'}, function(error, tweets, response) {
       fs.writeFile('tweets.json', JSON.stringify(tweets), (err) => {
