@@ -62,10 +62,10 @@ module.exports = app;
 /* Twitter Stuff */
 var Twitter = require('twitter');
 var client = new Twitter({
-   consumer_key: '7aA0NczRcrviqffsA7RA5TU8M',
-   consumer_secret: 'spAlI0VzGS9EpnP1tUVNKUsyUyHRIG4ZIzBuOwQICuBCBhYcJS',
-   access_token_key: '137311146-iWeVK4oW8DlH1NgmGadnySIn3Io0Z9PZE4twinsD',
-   access_token_secret: 'denlHNq9BrCvcAuEXlmKvJMrNRH9eYG6nuMgUVJaMxI4c'
+   consumer_key: '',
+   consumer_secret: '',
+   access_token_key: '',
+   access_token_secret: ''
 });
 
 var searchTerm = '#ausvotes -filter:retweet';
