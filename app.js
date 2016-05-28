@@ -78,8 +78,8 @@ var CronJob = require('cron').CronJob;
 var fs = require('fs');
 
 
-var job = new CronJob('*/30 */1 * * * *', function() {
-
+//var job = new CronJob('*/30 */1 * * * *', function() {
+/*
    console.log('Checking for tweets\t' + (new Date()).toTimeString());
    client.get('search/tweets', {q: searchTerm, result_type: 'recent'}, function(error, tweets, response) {
       fs.writeFile('tweets.json', JSON.stringify(tweets), (err) => {
@@ -89,9 +89,9 @@ var job = new CronJob('*/30 */1 * * * *', function() {
    });
 
 }, null, false, 'Australia/Melbourne');
+*/
 
-
-job.start();
+//job.start();
 
 var regex = /^#\w+\s(Poll Federal Primary Votes: )((\S+ \d+(.\d+)? \(\S+)\s?)+/g;
 var regex2 = /(\S+ \d+(.\d+)?)/g;
@@ -123,6 +123,7 @@ var job2 = new CronJob('0 */1 * * * *', function() {
          if (err) throw err;
          console.log('Polls retrieved\t\t' + (new Date()).toTimeString());
       });
+      jsonCreated = [];
    });
 
 }, null, false, 'Australia/Melbourne');
