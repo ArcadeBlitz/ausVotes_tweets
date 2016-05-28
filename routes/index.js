@@ -6,7 +6,8 @@ var fs = require('fs');
 router.get('/', function(req, res, next) {
    
    var tweets = JSON.parse(fs.readFileSync('tweets.json', 'utf8'));      /* grab the json from the text file */
-   res.render('index', { title: '#ausvotes', data: tweets });
+   var pollData = JSON.parse(fs.readFileSync('polls.json', 'utf8'));      /* grab the json from the text file */
+   res.render('index', { title: '#ausvotes', data: tweets, polls: pollData });
 
 });
 

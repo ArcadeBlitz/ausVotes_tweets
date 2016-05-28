@@ -90,5 +90,41 @@ var job = new CronJob('*/30 */1 * * * *', function() {
 
 }, null, false, 'Australia/Melbourne');
 
+
 job.start();
 
+var regex = /^#\w+\s(Poll Federal Primary Votes: )((\S+ \d+(.\d+)? \(\S+)\s?)+/g;
+var regex2 = /(\S+ \d+(.\d+)?)/g;
+var regex3 = /\w+/g;
+var regex4 = /\S+/g;
+
+var jsonCreated = [];
+
+var job2 = new CronJob('0 */1 * * * *', function() {
+   
+   console.log('checking polls');
+
+   client.get('statuses/user_timeline', {screen_name: "ghostwhovotes", exclude_replies: true, count: 40}, function(error, tweets, response) {
+      for (var i=0; i<tweets.length; i++) {
+         if ((String(tweets[i].text)).match(regex)) {
+            // Name of Poll
+            var pollname = (String(tweets[i].text).match(regex3))[0];
+            // Each Party
+            var parties = String(tweets[i].text).match(regex2);
+            var partyResults = {};
+            for(var j=0; j<parties.length; j++) {
+               partyResults[parties[j].match(regex4)[0]] = parties[j].match(regex4)[1];
+            }
+            var result = {poll:pollname, info:partyResults};
+            jsonCreated.push(result);
+         }
+      }
+      fs.writeFile('polls.json', JSON.stringify(jsonCreated), (err) => {
+         if (err) throw err;
+         console.log('Polls retrieved\t\t' + (new Date()).toTimeString());
+      });
+   });
+
+}, null, false, 'Australia/Melbourne');
+
+job2.start();
