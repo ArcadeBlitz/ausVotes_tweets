@@ -8,6 +8,12 @@ body {
    font-family: "AlegreyaSans", Fallback, sans-serif;
 }
 
+#meme {
+   display: block;
+   margin-left: auto;
+   margin-right: auto;
+}
+
 #bottomtext {
    float: right;
 }
