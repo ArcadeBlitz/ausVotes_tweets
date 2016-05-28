@@ -78,8 +78,8 @@ var CronJob = require('cron').CronJob;
 var fs = require('fs');
 
 
-//var job = new CronJob('*/30 */1 * * * *', function() {
-/*
+var job = new CronJob('*/30 */1 * * * *', function() {
+
    console.log('Checking for tweets\t' + (new Date()).toTimeString());
    client.get('search/tweets', {q: searchTerm, result_type: 'recent'}, function(error, tweets, response) {
       fs.writeFile('tweets.json', JSON.stringify(tweets), (err) => {
@@ -89,9 +89,9 @@ var fs = require('fs');
    });
 
 }, null, false, 'Australia/Melbourne');
-*/
 
-//job.start();
+
+job.start();
 
 var regex = /^#\w+\s(Poll Federal Primary Votes: )((\S+ \d+(.\d+)? \(\S+)\s?)+/g;
 var regex2 = /(\S+ \d+(.\d+)?)/g;
