@@ -15,7 +15,6 @@ block content
             br
             br
             span(id="description") The latest tweets, from the people, about the upcoming 2016 Australian Federal Election.
-   br
    div(class='container' id='tweetarea')
       if data.statuses
          each item in data.statuses
@@ -29,3 +28,9 @@ block content
                li(class='tweetdata') !{rt} <span class='count'> !{item.retweet_count} </span> !{like} <span class='count'> !{item.favorite_count} </span>
       else
          p= 'Pual has screwed up...'
+   nav(class="navbar navbar-default" id="navbar")
+      div(class="container-fluid")
+         div(class="navbar-fluid")
+            span(id='bottomtext')
+               a(id="name" href="https://github.com/ArcadeBlitz") Paul Davidson 
+               span 2016

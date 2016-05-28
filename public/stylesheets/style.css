@@ -8,6 +8,10 @@ body {
    font-family: "AlegreyaSans", Fallback, sans-serif;
 }
 
+#bottomtext {
+   float: right;
+}
+
 #counterObject {
    float: right;
    text-align: center;
