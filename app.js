@@ -77,6 +77,7 @@ var searchTerm = '#ausvotes AND filter:safe AND -filter:retweets';
 var CronJob = require('cron').CronJob;
 var fs = require('fs');
 
+
 var job = new CronJob('*/30 */1 * * * *', function() {
 
    console.log('Checking for tweets\t' + (new Date()).toTimeString());
@@ -90,3 +91,4 @@ var job = new CronJob('*/30 */1 * * * *', function() {
 }, null, false, 'Australia/Melbourne');
 
 job.start();
+

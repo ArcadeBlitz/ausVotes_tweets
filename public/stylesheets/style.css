@@ -8,6 +8,27 @@ body {
    font-family: "AlegreyaSans", Fallback, sans-serif;
 }
 
+#party{
+   padding: 20px;
+   border: dashed 3px #FFEB3B;
+   background-color: #FFF9C4;
+}
+
+#coal {
+}
+
+#labor {
+   background-color: #F44336;
+}
+
+#greens {
+   background-color: #4CAF50;
+}
+
+#other {
+   background-color: #BDBDBD;
+}
+
 #meme {
    display: block;
    margin-left: auto;

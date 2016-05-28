@@ -15,6 +15,18 @@ block content
             br
             br
             span(id="description") The latest tweets, from the people, about the upcoming 2016 Australian Federal Election.
+   div(id='party' class='container')
+      div Party Preference <--> 7th May [Galaxy Research]
+      br
+      div(class='progress' id='preference')
+         div(class='progress-bar' id='coal' style='width: 41%')
+            span Coalition 41%
+         div(class='progress-bar' id='labor' style='width: 37%')
+            span Labor 37%
+         div(class='progress-bar' id='greens' style='width: 11%')
+            span Greens 11%
+         div(class='progress-bar' id='other' style='width: 11%')
+            span Other 11%
    div(class='container' id='tweetarea')
       if data.statuses
          each item in data.statuses
