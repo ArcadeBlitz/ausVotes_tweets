@@ -3,5 +3,15 @@ html
   head
     title= title
     link(rel='stylesheet', href='/stylesheets/style.css')
+    link(rel='stylesheet', href='/stylesheets/bootstrap.min.css')
   body
     block content
+    script(src='/javascripts/jquery-2.2.4.min.js')
+    script(src='/javascripts/bootstrap.min.js')
+    script(src='/javascripts/jquery.countdown.min.js')
+    script.
+      $('#counter').countdown("2016/07/02", function(event) {
+         $(this).text(
+            event.strftime('%D days : %H hours : %M minutes : %S seconds')
+         );
+      });

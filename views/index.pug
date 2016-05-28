@@ -1,20 +1,31 @@
 extends layout
 
 block content
-    include svg.pug
-    -var heading = "<span id='titlep1'>#aus</span><span id='titlep2'>votes</span>"
-    header
-      h1 !{heading}
-    br
-    br
-    if data.statuses
-        each item in data.statuses
+   include svg.pug
+   -var heading = "<span id='titlep1'>#aus</span><span id='titlep2'>votes</span>"
+   nav(class="navbar navbar-default" id="navbar")
+      div(class="container-fluid")
+         div(class="navbar-fluid")
+            a(class="navbar-brand") !{heading}
+            img(id="logo" src="/images/AusVotes.png")
+            div(id='counterObject')
+               span(id='counterTitle') Election Day Countdown
+               br
+               span(id="counter")
+            br
+            br
+            span(id="description") The latest tweets, from the people, about the upcoming 2016 Australian Federal Election.
+   br
+   div(class='container' id='tweetarea')
+      if data.statuses
+         each item in data.statuses
+            br
             ul(class='status')
-                li(class='avatar'): img(src= item.user.profile_image_url)
-                li(class='name')= item.user.name
-                li(class='username')= '@' + item.user.screen_name
-                br
-                li(class='text')= item.text
-                li(class='tweetdata') !{rt} <span class='count'> !{item.retweet_count} </span> !{like} <span class='count'> !{item.favorite_count} </span>
-    else
-        p= 'Pual has screwed up...'
+               li(class='avatar'): img(src= item.user.profile_image_url)
+               li(class='name')= item.user.name
+               li(class='username')= '@' + item.user.screen_name
+               br
+               li(class='text')= item.text
+               li(class='tweetdata') !{rt} <span class='count'> !{item.retweet_count} </span> !{like} <span class='count'> !{item.favorite_count} </span>
+      else
+         p= 'Pual has screwed up...'
