@@ -13,7 +13,7 @@ router.get('/', function(req, res, next) {
          tweets = JSON.parse(fs.readFileSync('tweets.json', 'utf8'));      /* grab the json from the text file */
       } else if(err.code == 'ENOENT') {
          console.log(err);
-         tweets = null;
+         tweets = false;
       } else {
          console.log(err);
       }
@@ -24,7 +24,7 @@ router.get('/', function(req, res, next) {
          pollData = JSON.parse(fs.readFileSync('polls.json', 'utf8'));      /* grab the json from the text file */
       } else if(err.code == 'ENOENT') {
          console.log(err);
-         pollData = null;
+         pollData = false;
       } else {
          console.log(err);
       }

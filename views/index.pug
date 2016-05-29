@@ -19,7 +19,7 @@ block content
       div Current Polls 
          a(href="https://twitter.com/GhostWhoVotes") [@ghostwhovotes]
       br
-      if polls
+      if polls != null
          each part in polls
             div !{part.poll}
             br
@@ -29,7 +29,7 @@ block content
                      span !{index} !{value}%
       else
          br
-         p Fair shake of the sauce bottle mate. Hold on. Refresh in a minute.
+         p(class='shake') Fair shake of the sauce bottle mate. Hold on. Refresh in a minute.
          img(id="loading" src='http://i.giphy.com/yi9haSsK9nxCM.gif')
    div(class='container-fluid' id='tweetarea')
       div(class="row")
@@ -50,7 +50,7 @@ block content
                   p= 'Pual has screwed up...'
             else
                br
-               p Fair shake of the sauce bottle mate. Hold on. Refresh in a minute.
+               p(class='shake') Fair shake of the sauce bottle mate. Hold on. Refresh in a minute.
                img(id="loading" src='http://i.giphy.com/yi9haSsK9nxCM.gif')
    nav(class="navbar navbar-default" id="navbar")
       div(class="container-fluid")

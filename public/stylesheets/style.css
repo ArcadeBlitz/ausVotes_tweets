@@ -8,6 +8,10 @@ body {
    font-family: "AlegreyaSans", Fallback, sans-serif;
 }
 
+.shake {
+   text-align: center;
+}
+
 #party{
    margin: 20px;
    padding: 20px;
