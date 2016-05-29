@@ -102,7 +102,7 @@ var regex4 = /\S+/g;
 var jsonCreated = [];
 
 var job2 = new CronJob('0 */1 * * * *', function() {
-   
+ 
    console.log('checking polls');
 
    client.get('statuses/user_timeline', {screen_name: "ghostwhovotes", exclude_replies: true, count: 40}, function(error, tweets, response) {

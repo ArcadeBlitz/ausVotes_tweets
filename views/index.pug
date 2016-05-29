@@ -19,7 +19,7 @@ block content
       div Current Polls 
          a(href="https://twitter.com/GhostWhoVotes") [@ghostwhovotes]
       br
-      - if (polls != false) {
+      if polls
          each part in polls
             div !{part.poll}
             br
@@ -27,33 +27,27 @@ block content
                each value, index in part.info
                   div(class='progress-bar' id='' + index + '' style='width: ' + value + '%')
                      span !{index} !{value}%
-      - } else {
+      else
          br
          p(class='shake') Fair shake of the sauce bottle mate. Hold on. Refresh in a minute.
          img(id="loading" src='http://i.giphy.com/yi9haSsK9nxCM.gif')
-      - }
    div(class='container-fluid' id='tweetarea')
       div(class="row")
          div(class="col-md-12")
             div Tweets
-            - if (data != false) {
-               if data.statuses
-                  each item in data.statuses
+            if data.statuses
+               each item in data.statuses
+                  br
+                  ul(class='status')
+                     li(class='avatar'): img(src= item.user.profile_image_url)
+                     li(class='name')= item.user.name
+                     li(class='username')= '@' + item.user.screen_name
                      br
-                     ul(class='status')
-                        li(class='avatar'): img(src= item.user.profile_image_url)
-                        li(class='name')= item.user.name
-                        li(class='username')= '@' + item.user.screen_name
-                        br
-                        li(class='text')= item.text
-                        li(class='tweetdata') !{rt} <span class='count'> !{item.retweet_count} </span> !{like} <span class='count'> !{item.favorite_count} </span>
-               else
-                  p= 'Pual has screwed up...'
-            - } else {
-               br
+                     li(class='text')= item.text
+                     li(class='tweetdata') !{rt} <span class='count'> !{item.retweet_count} </span> !{like} <span class='count'> !{item.favorite_count} </span>
+            else
                p(class='shake') Fair shake of the sauce bottle mate. Hold on. Refresh in a minute.
                img(id="loading" src='http://i.giphy.com/yi9haSsK9nxCM.gif')
-            - }
    nav(class="navbar navbar-default" id="navbar")
       div(class="container-fluid")
          div(class="navbar-fluid")
