@@ -9,6 +9,7 @@ body {
 }
 
 #party{
+   margin: 20px;
    padding: 20px;
    border: dashed 3px #FFEB3B;
    background-color: #FFF9C4;
@@ -29,10 +30,14 @@ body {
    background-color: #FFA000;
 }
 
-#meme {
+#meme, #loading {
    display: block;
    margin-left: auto;
    margin-right: auto;
+}
+
+#loading {
+   width: 300px;
 }
 
 #bottomtext {
@@ -49,7 +54,6 @@ body {
    padding-bottom: 5px;
 
    background-color: #81D4FA;
-
    border: 3px dashed #00A8E8;
 }
 
@@ -126,7 +130,12 @@ h1 {
    fill: #AAB8C2;
 }
 
-.tweetdata {
+#tweetarea {
+   margin-left: 150px;
+   margin-right: 150px;
+   padding: 20px;
+   background-color: #81D4FA;
+   border: 3px dashed #00A8E8;
 }
 
 svg {

@@ -15,36 +15,47 @@ block content
             br
             br
             span(id="description") The latest tweets, from the people, about the upcoming 2016 Australian Federal Election.
-   div(id='party' class='container')
+   div(id='party' class='container-fluid')
       div Current Polls 
          a(href="https://twitter.com/GhostWhoVotes") [@ghostwhovotes]
       br
-      each part in polls
-         div !{part.poll}
-         br
-         div(class='progress' id='preference')
-            each value, index in part.info
-               div(class='progress-bar' id='' + index + '' style='width: ' + value + '%')
-                  span !{index} !{value}%
-   div(class='container' id='tweetarea')
-      if data.statuses
-         each item in data.statuses
+      if polls
+         each part in polls
+            div !{part.poll}
             br
-            ul(class='status')
-               li(class='avatar'): img(src= item.user.profile_image_url)
-               li(class='name')= item.user.name
-               li(class='username')= '@' + item.user.screen_name
-               br
-               li(class='text')= item.text
-               li(class='tweetdata') !{rt} <span class='count'> !{item.retweet_count} </span> !{like} <span class='count'> !{item.favorite_count} </span>
+            div(class='progress' id='preference')
+               each value, index in part.info
+                  div(class='progress-bar' id='' + index + '' style='width: ' + value + '%')
+                     span !{index} !{value}%
       else
-         p= 'Pual has screwed up...'
-   br
-   img(id="meme" src="http://i.giphy.com/eIcYFsM3xLClq.gif")
-   br
+         br
+         p Fair shake of the sauce bottle mate. Hold on. Refresh in a minute.
+         img(id="loading" src='http://i.giphy.com/yi9haSsK9nxCM.gif')
+   div(class='container-fluid' id='tweetarea')
+      div(class="row")
+         div(class="col-md-12")
+            div Tweets
+            if data
+               if data.statuses
+                  each item in data.statuses
+                     br
+                     ul(class='status')
+                        li(class='avatar'): img(src= item.user.profile_image_url)
+                        li(class='name')= item.user.name
+                        li(class='username')= '@' + item.user.screen_name
+                        br
+                        li(class='text')= item.text
+                        li(class='tweetdata') !{rt} <span class='count'> !{item.retweet_count} </span> !{like} <span class='count'> !{item.favorite_count} </span>
+               else
+                  p= 'Pual has screwed up...'
+            else
+               br
+               p Fair shake of the sauce bottle mate. Hold on. Refresh in a minute.
+               img(id="loading" src='http://i.giphy.com/yi9haSsK9nxCM.gif')
    nav(class="navbar navbar-default" id="navbar")
       div(class="container-fluid")
          div(class="navbar-fluid")
+            img(id="meme" src="http://i.giphy.com/eIcYFsM3xLClq.gif")
             span(id='bottomtext')
                a(id="name" href="https://github.com/ArcadeBlitz") Paul Davidson 
                span 2016

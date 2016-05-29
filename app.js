@@ -93,6 +93,7 @@ var job = new CronJob('*/30 */1 * * * *', function() {
 
 job.start();
 
+
 var regex = /^#\w+\s(Poll Federal Primary Votes: )((\S+ \d+(.\d+)? \(\S+)\s?)+/g;
 var regex2 = /(\S+ \d+(.\d+)?)/g;
 var regex3 = /\w+/g;
