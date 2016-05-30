@@ -12,6 +12,15 @@ body {
    text-align: center;
 }
 
+.legend {
+   padding: 10px;
+   border-radius: 20px;
+}
+
+.poll {
+   background-color: black;
+}
+
 #party{
    padding: 20px;
    border: dashed 3px #FFEB3B;
@@ -26,17 +35,43 @@ body {
    height: 100%;
 }
 
+.progress {
+   margin-bottom: 0px;
+}
+
+.progress-bar {
+   box-shadow: none;
+}
+
+#percent {
+   background-color: black;
+}
+
 .partyText {
    color: black;
    background-color: white;
    padding: 3px;
    line-height: 50px;
+   height: 50px;
    border-radius: 7px;
-   border: 5px solid black;
+}
+
+.partyText2 {
+   color: black;
+   background-color: white;
+   padding: 3px;
+   height: 50px;
+   border-radius: 7px;
+   overflow: visible;
 }
 
 #preference {
    height: 50px;
+}
+
+#preference2 {
+   height: 20px;
+   border: 0px solid #FFF9C4;
 }
 
 #L\/NP {
