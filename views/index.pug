@@ -16,21 +16,25 @@ block content
             br
             span(id="description") The latest tweets, from the people, about the upcoming 2016 Australian Federal Election.
    div(id='party' class='container-fluid')
-      div Current Polls 
-         a(href="https://twitter.com/GhostWhoVotes") [@ghostwhovotes]
-      br
-      if polls
-         each part in polls
-            div !{part.poll}
+      div(class="row")
+         div(class="col-md-2")
+         div(class="col-md-8")
+            div Current Polls 
+               a(href="https://twitter.com/GhostWhoVotes") [@ghostwhovotes]
             br
-            div(class='progress' id='preference')
-               each value, index in part.info
-                  div(class='progress-bar' id='' + index + '' style='width: ' + value + '%')
-                     span !{index} !{value}%
-      else
-         br
-         p(class='shake') Fair shake of the sauce bottle mate. Hold on. Refresh in a minute.
-         img(id="loading" src='http://i.giphy.com/yi9haSsK9nxCM.gif')
+            if polls
+               each part in polls
+                  div !{part.poll}
+                  br
+                  div(class='progress' id='preference')
+                     each value, index in part.info
+                        div(class='progress-bar' id='' + index + '' style='width: ' + value + '%')
+                           span !{index} !{value}%
+            else
+               br
+               p(class='shake') Fair shake of the sauce bottle mate. Hold on. Refresh in a minute.
+               img(id="loading" src='http://i.giphy.com/yi9haSsK9nxCM.gif')
+         div(class="col-md-2")
    div(class='container-fluid')
       div(class="row")
          div(class="col-md-2")
