@@ -50,6 +50,14 @@ block content
                      li(class='username')= '@' + item.user.screen_name
                      br
                      li(class='text')= item.text
+                     if item.entities.media
+                        each photo in item.entities.media
+                           br
+                           li(class='statusImages')
+                              img(src=photo.media_url_https class="statusimg")
+                     br
+                     li(class='time')= item.created_at
+                     br
                      li(class='tweetdata') !{rt} <span class='count'> !{item.retweet_count} </span> !{like} <span class='count'> !{item.favorite_count} </span>
             else
                p(class='shake') Fair shake of the sauce bottle mate. Hold on. Refresh in a minute.

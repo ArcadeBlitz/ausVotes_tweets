@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 var fs = require('fs');
 var fileExists = require('file-exists');
+var moment = require('moment');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -11,6 +12,9 @@ router.get('/', function(req, res, next) {
 
    if (fileExists('tweets.json')) {
       tweets = JSON.parse(fs.readFileSync('tweets.json', 'utf8'));      /* grab the json from the text file */
+      for(var y=0; y<tweets.statuses.length; y++) {
+         tweets.statuses[y].created_at = moment(tweets.statuses[y].created_at, 'dd MMM DD HH:mm:ss ZZ YYYY', 'en').format('h:mm A - D MMM YYYY');
+      }
    } else {
       tweets = false;
    }
