@@ -33,6 +33,10 @@ body {
    background-color: #FFA000;
 }
 
+#Other {
+   background-color: #BDBDBD;
+}
+
 #meme, #loading, .statusimg {
    display: block;
    margin-left: auto;

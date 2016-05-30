@@ -113,9 +113,14 @@ var job2 = new CronJob('0 */1 * * * *', function() {
             // Each Party
             var parties = String(tweets[i].text).match(regex2);
             var partyResults = {};
+            var otherResult = 100.0;
             for(var j=0; j<parties.length; j++) {
                partyResults[parties[j].match(regex4)[0]] = parties[j].match(regex4)[1];
             }
+            for (var key in partyResults) {
+               otherResult -= partyResults[key];
+            }
+            partyResults['Other'] = otherResult;
             var result = {poll:pollname, info:partyResults};
             jsonCreated.push(result);
          }
