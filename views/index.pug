@@ -29,7 +29,15 @@ block content
                   div(class='progress' id='preference')
                      each value, index in part.info
                         div(class='progress-bar' id='' + index + '' style='width: ' + value + '%')
-                           span !{index} !{value}%
+                           span(class='partyInfo')
+                              span(class='partyText' id='' + index + '') !{index} !{value}%
+               div Legend
+                  br
+                  div L/NP - Blue
+                  div ALP - Red
+                  div GRN - Green
+                  div NXT - Yellow
+                  div Other - Grey
             else
                br
                p(class='shake') Fair shake of the sauce bottle mate. Hold on. Refresh in a minute.
