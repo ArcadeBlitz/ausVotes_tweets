@@ -4,6 +4,11 @@ Read the latest tweets about the Australian 2016 Election, with this web server.
 
 Updates to come soon.
 
+## Implemented Ideas
+
+- Poll Data
+- K Rudd Error Message
+
 ## Future Ideas
 
 - Twitter Integration??
