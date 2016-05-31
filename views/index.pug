@@ -19,37 +19,22 @@ block content
       div(class="row")
          div(class="col-md-2")
          div(class="col-md-8" id="party")
-            div Current Polls 
+            h4 Boat by Boat Analysis
                a(href="https://twitter.com/GhostWhoVotes") [@ghostwhovotes]
+            p The race to enter Australia by boat is on!
             if polls
                each part in polls
                   br
                   div !{part.poll}
                   br
                   div.poll
-                     div(class='progress' id='preference2')
-                        each value, index in part.info
-                           div(class='progress-bar' id='percent' style='width: ' + value + '%')
-                              span(class='partyInfo2')
-                                 span(class='partyText2' id="" + index + '') !{index}
-                     div(class='progress' id='preference')
-                        each value, index in part.info
-                           div(class='progress-bar' id='' + index + '' style='width: ' + value + '%')
-                              span(class='partyInfo')
-                     div(class='progress' id='preference2')
-                        each value, index in part.info
-                           div(class='progress-bar' id='percent' style='width: ' + value + '%')
-                              span(class='partyInfo2')
-                                 span(class='partyText2') !{value} 
+                     each value, index in part.info
+                        div.partyText(class=index) !{index} !{value}%
+                        div.progress#preference
+                           div.progress-bar(id='' + index + '' style='width: ' + 2 * value + '%')
+                              span.partyInfo
+                        div.finishLine
                br
-               div Legend
-                  br
-                  br
-                  div(id='L/NP').legend L/NP - Coalition [Liberal / National Party]
-                  div#ALP.legend ALP - Labor
-                  div#GRN.legend GRN - The Greens
-                  div#NXT.legend NXT - Nick Xenophon Team
-                  div#Other.legend Other
             else
                br
                p(class='shake') Fair shake of the sauce bottle mate. Hold on. Refresh in a minute.
@@ -60,7 +45,7 @@ block content
       div(class="row")
          div(class="col-md-2")
          div(class="col-md-8" id="tweetarea")
-            div Tweets
+            h4 Tweets
             if data.statuses
                each item in data.statuses
                   br
